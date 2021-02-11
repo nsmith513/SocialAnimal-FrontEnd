@@ -1,9 +1,13 @@
 import React from 'react';
+import {Image} from "react-bootstrap";
 
-export const Img = () => {
+export const Img = (props) => {
+
+    console.log(props)
+
     return(
         <div>
-            <h1>Img</h1>
+            <Image src={props.imageName}/>
         </div>
     )
 }
