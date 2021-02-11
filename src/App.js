@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
         <PetNav />
-        <SplashPage />
+        <div style={{marginBottom: "10px"}}>
+            <SplashPage />
+        </div>
     </div>
   );
 }

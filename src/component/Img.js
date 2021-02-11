@@ -1,13 +1,11 @@
 import React from 'react';
-import {Image} from "react-bootstrap";
+import {Col, Image} from "react-bootstrap";
 
 export const Img = (props) => {
 
-    console.log(props)
-
     return(
-        <div>
-            <Image src={props.imageName}/>
-        </div>
+        <Col xs={6} md={4}>
+            <Image thumbnail src={props.imageName}/>
+        </Col>
     )
 }
