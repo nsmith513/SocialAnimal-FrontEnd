@@ -7,7 +7,6 @@ export const SplashPage = () => {
 
     return(
         <div>
-            <PetNav />
             <ImagesContainer />
         </div>
     )
