@@ -9,7 +9,7 @@ export const ImagesContainer = () => {
     
     React.useEffect(()=>{
         const fetchImages = async () => {
-            const response = await fetch("https://dog.ceo/api/breeds/image/random/50");
+            const response = await fetch("http://localhost:8080/api/pet/getAll");
             const data = await response.json();
             console.log(data);
             setImages(data);
@@ -18,15 +18,15 @@ export const ImagesContainer = () => {
     },[])
 
     const showImages = () => {
-        if(images.message === undefined){
+        if(images === undefined){
             return(
                 <h1>Loading</h1>
             )
         } else {
-            return images.message.map((image)=> {
+            return images.map((image)=> {
                 console.log(image)
                 return(
-                    <Img imageName={image} key={image}/>
+                    <Img imageName={image.link} key={image.id}/>
                 )
             })
         }

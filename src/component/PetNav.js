@@ -20,7 +20,7 @@ export const PetNav = () => {
     // if link is not empty
     if (link) {
       axios
-        .post("API server", {
+        .post("http://localhost:8080/api/pet/post", {
           link: link,
         })
         .then(function (response) {
