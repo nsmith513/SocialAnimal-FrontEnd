@@ -1,9 +1,14 @@
-import React from 'react';
-
-export const Img = () => {
-    return(
-        <div>
-            <h1>Img</h1>
-        </div>
-    )
-}
+import React from "react";
+import { Col, Image } from "react-bootstrap";
+const imgClass = {
+  width: "450px",
+  height: "400px",
+  marginBottom: "5px",
+};
+export const Img = (props) => {
+  return (
+    <Col xs={6} md={4}>
+      <Image style={imgClass} thumbnail src={props.imageName} />
+    </Col>
+  );
+};

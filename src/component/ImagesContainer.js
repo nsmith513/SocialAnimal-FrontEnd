@@ -1,30 +1,42 @@
 import React from 'react';
 import {Img} from "./Img";
+import {imageArray} from './images/constants'
+import {Container, Row} from "react-bootstrap";
 
 export const ImagesContainer = () => {
 
     const [images, setImages] = React.useState([]);
+    
     React.useEffect(()=>{
         const fetchImages = async () => {
-            const response = await fetch("");
+            const response = await fetch("http://localhost:8080/api/pet/getAll");
             const data = await response.json();
+            console.log(data);
             setImages(data);
         }
         fetchImages();
     },[])
 
     const showImages = () => {
-        images.map(()=> {
+        if(images === undefined){
             return(
-                <Img />
+                <h1>Loading</h1>
             )
-        })
+        } else {
+            return images.map((image)=> {
+                console.log(image)
+                return(
+                    <Img imageName={image.link} key={image.id}/>
+                )
+            })
+        }
     }
 
     return(
-        <div>
-            <h1>Images</h1>
-            {showImages()}
-        </div>
+        <Container fluid>
+            <Row>
+                {showImages()}
+            </Row>
+        </Container>
     )
 }
