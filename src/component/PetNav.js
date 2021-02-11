@@ -3,6 +3,8 @@ import {Button, Form, FormControl, Nav, Navbar} from "react-bootstrap";
 
 export const PetNav = () => {
 
+    const [fileName, setFileName] = React.useState("Upload")
+
     const onClick = () => {
 
     }
@@ -12,14 +14,10 @@ export const PetNav = () => {
 
         <Navbar bg="light" expand="lg">
             <Navbar.Brand>Petsville</Navbar.Brand>
-            {/*<input type="file" class="form-control" id="imageFile"/>*/}
-            <Form.File id="imageFile"/>
-
-
-
-
-                {/*<input type="file"  name="pic" accept="image/*"/>*/}
-
+            <Form inline>
+                <Form.File id="imageFile" className="mr-sm-2" hidden/>
+                <Button><label for="imageFile" style={{cursor: "pointer"}}>Upload</label></Button>
+            </Form>
         </Navbar>
     )
 }
