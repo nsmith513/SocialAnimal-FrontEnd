@@ -7,6 +7,7 @@ export const PetNav = () => {
   const [link, setLink] = useState("");
   const [modalMessage, setModalMessage] = useState("");
   const handleClick = () => {
+    setModalMessage("");
     setShowModal(true);
   };
   const handleClose = () => {
@@ -16,7 +17,6 @@ export const PetNav = () => {
     setLink(e.target.value);
   };
   const saveImage = () => {
-    console.log(link);
     // if link is not empty
     if (link) {
       axios
@@ -29,12 +29,15 @@ export const PetNav = () => {
           setLink("");
           setShowModal(false);
           setModalMessage("Submitted");
+          window.location.reload();
         })
         .catch(function (error) {
           // handle error
           console.log(error);
           setModalMessage("failed");
         });
+    } else {
+      setModalMessage("Link cannot be empty!!");
     }
   };
   return (
